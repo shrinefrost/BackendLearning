@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include("partials/header.ejs") %>
+  <main>
+    <form action="blogList" method="post">
+      <input type="submit" value="Read Blogs">
+      <p>Read blogs that make you feel curious!!</p>
+    </form>
+    <form action="write" method="post">
+      <input type="submit" value="Write Blogs">
+      <p>Write blogs to make people curious!!</p>
+    </form>
+  </main>
+  <%- include("partials/footer.ejs") %>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include("../partials/header.ejs") %>
+  <main>
+    <div class="userBlogs">
+      <h1>Your Blogs!!</h1>
+      <% if (locals.userBlogs) { %>
+      <% for(let blogId in userBlogs) { %>
+      <article>
+        <a href="/blogList/<%= blogId %>">
+          <h2>
+            <%= blogId.replaceAll("-", " ").toUpperCase() %>
+          </h2>
+        </a>
+        <p>
+          <%= userBlogs[blogId].split(" ").slice(0, 20).join(" ") %>...
+        </p>
+      </article>
+      <% } %>
+      <% } else { %>
+      <h2>NO post till now from others 🥲</h2>
+      <% } %>
+    </div>
+
+    <div class="publicBlogs">
+      <h1>Other's Blog 👇</h1>
+      <% if (locals.publicBlogs) { %>
+      <% for(let blogId in publicBlogs) { %>
+      <article>
+        <a href="/blogList/<%= blogId %>">
+          <h2>
+            <%= blogId.replaceAll("-", " ").toUpperCase() %>
+          </h2>
+        </a>
+        <p>
+          <%= publicBlogs[blogId].split(" ").slice(0, 20).join(" ") %>...
+        </p>
+      </article>
+      <% } %>
+      <% } else { %>
+      <h2>NO post till now from others 🥲</h2>
+      <% } %>
+
+    </div>
+
+  </main>
+  <%- include("../partials/footer.ejs") %>
+
+</body>
+
+</html>

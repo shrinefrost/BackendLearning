@@ -1,7 +1,7 @@
 import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import bodyParser from "body-parser";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -19,8 +19,8 @@ app.listen(port, () => {
 });
 
 //step 2: Main work from server other is link files:
-app.use(express.static("public"));
 
+app.use(express.static("public"));
 //step 1:
 app.get("/", (req, res) => {
   res.render(__dirname + "/views/index.ejs");
