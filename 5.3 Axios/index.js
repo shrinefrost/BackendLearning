@@ -47,12 +47,14 @@ app.post("/", async (req, res) => {
       participants: result.participants,
     });
   } catch (error) {
+    // Step 3: If you get a 404 error (resource not found) from the API request.
+    // Pass an error to the index.ejs to tell the user:
+    // "No activities that match your criteria."
     console.error("Failed to make request:", error.message);
     res.render("index.ejs", {
       error: "No activities that match your criteria.",
     });
   }
-
   // Step 3: If you get a 404 error (resource not found) from the API request.
   // Pass an error to the index.ejs to tell the user:
   // "No activities that match your criteria."
